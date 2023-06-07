@@ -1,0 +1,29 @@
+.main-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+
+.main-container h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+.main-container input {
+    width: 95%;
+    margin-bottom: 25px;
+    padding: 5px;
+}
+  
+.main-container button {
+    width: 100%;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
