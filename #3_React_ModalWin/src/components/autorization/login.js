@@ -1,4 +1,6 @@
 import './login.css';
+import { BtnForm } from '../BtnForm/BtnForm';
+import { InputForm } from '../InputForm/InputForm';
 
 export function LoginForm({ flagRegistr }) {
     if(flagRegistr) {
@@ -6,22 +8,13 @@ export function LoginForm({ flagRegistr }) {
             <section className='main-container'>
                 <h2>Авторизация</h2>
                 <form>
-                    <div>
-                        {/* <label for="exampleInputEmail1" class="form-label">Логин</label> */}
-                        <input placeholder='логин' type="text" name="username" className='' />
-                    </div>
-                    <div>
-                        {/* <label for="exampleInputPassword1" class="form-label">Пароль</label> */}
-                        <input placeholder='пароль' type="password" name="password" class="form-control" id="exampleInputPassword1" />
-                    </div>
-        
-                    <button type="submit" class="btn">Войти</button>
-                </form>
-            
+                    <InputForm placeholderForm = "логин" />
+                    <InputForm placeholderForm = "пароль" />       
+                    <BtnForm textBtn = "Войти" />
+                </form>           
             </section>
         );
     } else  {
         return null;
-    }
-    
+    }    
 }

@@ -6,10 +6,10 @@ function App() {
   return (
     <section>
       <LoginForm 
-      flagRegistr = {false}
+      flagRegistr = {true}
       />
       <RegistrationForm 
-      flagRegistr= {false}
+      flagRegistr= {true}
       />
     </section>
   )
