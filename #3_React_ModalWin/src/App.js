@@ -1,15 +1,10 @@
-
-import { LoginForm } from './components/autorization/login.js';
-import { RegistrationForm } from './components/registration/registr.jsx';
+import { StartModal } from './components/ModalReg/StartModal.jsx';
 
 function App() {
   return (
     <section>
-      <LoginForm 
-      flagRegistr = {true}
-      />
-      <RegistrationForm 
-      flagRegistr= {true}
+      <StartModal 
+      flagRegistr = {false}
       />
     </section>
   )
