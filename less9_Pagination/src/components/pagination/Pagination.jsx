@@ -42,12 +42,15 @@ export default function Pagination() {
 	}
 
 	function CreateDiv() {
+        //получаем новый массив из 5 чисел исходя из выбранной страницы
+        const newArr = DATA.slice(pages.currentPage * pages.itemsPerPage - pages.itemsPerPage, pages.currentPage * pages.itemsPerPage);
+        console.log(newArr);
         return (
         <>
             <ul>
             {
-                //получаем новый массив из 5 чисел исходя из выбранной страницы
-                DATA.slice(pages.currentPage * pages.itemsPerPage - pages.itemsPerPage, pages.currentPage * pages.itemsPerPage - pages.itemsPerPage + pages.itemsPerPage).map((item) => (
+                //через map создаем новый массив из разметки, данные для которого берутся из чисел, полуяенных при преобразовании в slice
+                newArr.map((item) => (
                     <li key={item.id}>{item.name}</li>
                 ))
             }
