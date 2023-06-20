@@ -1,0 +1,73 @@
+/* все глобальные стили пишем вначале, а все что ниже это может переопределить */
+
+* {
+    /* стандартно у блочных блоков свойство box-sizing: content-box
+    и это значит задавая width, height мы задаем размер только содержимого
+    и добавив border, padding суммарно увеличит блок
+    Поэтому стоит переопределить свойство box-sizing: border-box
+    и при задании размера туда войдут как содержимое, так и рамки с padding */
+    box-sizing: border-box;
+
+}
+/* Обнуляем отсупы во всем документе */
+body {
+    /* margin: 0; */
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px; 
+    font-weight: 400;
+    line-height: 24px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.main-container {
+    border: 2px solid black;
+    width: 1143px;
+    height: 1000px;  
+    background-color: #fff;
+    border-radius: 103px;
+}
+
+.gender-site {   
+    width: 342px;
+    height: 33px;
+    /* border: 2px solid black; */
+    padding: 20px;
+}
+
+/* для всех дочерних элементов делаем отступ справа одинаковый */
+.gender-site .obj-center > * {
+    margin-right: 8px;
+}
+
+.obj-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 150px;
+    height: 33px;
+}
+
+select {
+    width: 39px;
+    height: 33px;
+}
+
+button {
+    width: 100px;
+    height: 33px;
+    padding: 8px 13px;
+    background-color: white;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
