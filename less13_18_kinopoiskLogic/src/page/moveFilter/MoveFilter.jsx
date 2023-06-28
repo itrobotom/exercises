@@ -14,8 +14,8 @@ function MoveFilter() {
   const [selectedGenresIds, setSelectedGenresIds] = useState([]);
 
   //переменные состояния хранения селектов фильтров
-  const [selectSort, setSelectSort] = useState('');
-  const [selectYear, setSelectYear] = useState('');
+  const [selectSort, setSelectSort] = useState('Популярные по убыванию');
+  const [selectYear, setSelectYear] = useState('2022');
 
   useEffect(() => { //запрос данных только после рендера всей страницы
     RequestGenre()
@@ -61,11 +61,18 @@ function MoveFilter() {
     <div className="filter">
       <h1>Фильтры:</h1>
       <div className="filtr-block-btn">
-        <button className="button-filter">Сбросить</button>
+        <button className="button-filter" onClick={()=>{
+          setSelectSort('Популярные по убыванию');
+          setSelectYear('2022');
+          //при выводе мы видим, что сами переменные на странице изменились, а в консоли вывелись старые данные при первом клике на сброс, а при втором обновились как положено...
+          setSelectedGenresIds([]);
+          console.log(`Переменные состояния после сброса фильтров ${selectSort} и ${selectYear} и ${selectedGenresIds}`);
+        }}
+        >Сбросить</button>
         <button className="button-filter">Применить</button>
       </div>
-      <Select headerSelect = {'Сортировать по:'} options = {categories} onChangeSelect={handleChangeSelectSort}></Select>
-      <Select headerSelect = {'Год релиза:'} options = {years} onChangeSelect={handleChangeSelectYear}></Select>
+      <Select headerSelect = {'Сортировать по:'} options = {categories} onChangeSelect={handleChangeSelectSort} defaultValue = {selectSort}></Select>
+      <Select headerSelect = {'Год релиза:'} options = {years} onChangeSelect={handleChangeSelectYear} defaultValue = {selectYear}></Select>
       {isGetGenre && <CheckGenre 
         genres={genres}
         selectedGenresIds={selectedGenresIds} // Передаем selectedGenresIds в CheckGenre

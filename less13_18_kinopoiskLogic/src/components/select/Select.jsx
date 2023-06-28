@@ -4,7 +4,8 @@ import './Select.css'
 export function Select( {
   headerSelect, 
   options,
-  onChangeSelect
+  onChangeSelect,
+  defaultValue
 } ) {
   return (
     <label className="label-filter">
@@ -16,7 +17,7 @@ export function Select( {
       и выбранное значение select передается в качестве аргумента этой функции. То есть, при изменении значения select, вызывается функция 
       onChangeSelect с выбранным значением в качестве аргумента, чтобы передать это значение обратно в родительский компонент
       */}
-      <select className="select-filter" name="sort" id="sort-select" onChange={(e) => {onChangeSelect(e.target.value)}}> 
+      <select value={defaultValue} className="select-filter" name="sort" id="sort-select" onChange={(e) => {onChangeSelect(e.target.value)}}> 
       {/* лучше индекс массива index не использовать в качестве ключа, а взять имя, т.к. оно не должно повторятья */}
         {options.map((value, index) => (
           <option key={value} value={value}>{value}</option>
