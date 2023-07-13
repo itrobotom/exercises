@@ -1,0 +1,9 @@
+* {
+  font-family: sans-serif;
+}
+
+.main-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}

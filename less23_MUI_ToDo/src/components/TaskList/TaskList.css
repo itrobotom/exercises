@@ -1,0 +1,17 @@
+
+/* сделаем задачу и ее редактирование по краям */
+.task-edit {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-check {
+    display: inline-block;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
