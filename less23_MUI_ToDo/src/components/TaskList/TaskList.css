@@ -1,17 +1,30 @@
 
 /* сделаем задачу и ее редактирование по краям */
 .task-edit {
-    width: 500px;
+    width: 450px;
     display: flex;
     justify-content: space-between;
 }
 
 .task-check {
-    display: inline-block;
+    display: flex;
+}
+
+.task-text {
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .task {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
+h5 {
+    text-align: center;
 }

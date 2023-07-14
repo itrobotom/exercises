@@ -12,18 +12,17 @@ export default function AddTask({onAddTask}) {
   return (
     <>
       <TextField 
-        // fullWidth sx={{ m: 1 }}
-        sx={{ m: 1, width: '60ch' }}
+        sx={{ mb: 2, width: '49ch' }}
         id="standard-basic" 
         label="Имя новой задачи" 
         variant="standard" 
-        // placeholder="Add task"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        
       />
       <IconButton aria-label="add"
+        sx={{ mt: 2, ml: 2 }}
         onClick={handleAddText}
+        disabled = {text === ''}
       >
         <AddIcon />
       </IconButton>

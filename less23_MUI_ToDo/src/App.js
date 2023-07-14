@@ -1,23 +1,8 @@
 import './style/App.css'
-import React, { useState } from "react";
-import Header from "./pages/header/Header";
+import React from "react";
 import Box from '@mui/material/Box';
-import { useFormControl } from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import FormHelperText from '@mui/material/FormHelperText';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
-
-// import * as React from 'react';
-import Button from '@mui/material/Button';
-
-
 import { useReducer } from 'react';
 import AddTask from './components/AddTask/AddTask';
-import  TaskList  from './components/TaskList/TaskList';
 import  { TasksInProcess, TasksComlete }  from './components/TaskList/TaskList';
 
 export default function TaskApp() {
@@ -48,12 +33,13 @@ export default function TaskApp() {
   return (
     <div className="main-container">
       <Box
-      sx={{
-        width: 600,
-        height: 900,
-        borderRadius: '10px',
-        border: "solid 2px blue"
-      }}
+        sx={{
+          width: 500,
+          height: 700,
+          borderRadius: '20px',
+          border: "solid 2px blue"
+        }}
+        p={3}
       >
         <h1>ToDo</h1>
         <AddTask onAddTask={handleAddTask} />

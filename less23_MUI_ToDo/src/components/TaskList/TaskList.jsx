@@ -6,20 +6,6 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import CheckIcon from '@mui/icons-material/Check';
 
 
-//делим TaskList на два компонента TasksInProcess и TasksComlete и рендер задач будет по флагу 
-
-export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
-  return (
-    <ul>
-      {tasks.map((task) => (
-        <li key={task.id}>
-          <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export function TasksInProcess({tasks, onChangeTask, onDeleteTask}) {
     let countTaskInProcess = tasks.reduce((count, element) => {
         if(!element.done){
@@ -29,13 +15,13 @@ export function TasksInProcess({tasks, onChangeTask, onDeleteTask}) {
     }, 0);
     return (
         <>
-            <h2>{countTaskInProcess}</h2>
+            <h5>ПЛАН {countTaskInProcess}</h5>
             <ul>
                 {tasks.filter(task => task.done === false).map(filteredTask => (
                     <li key={filteredTask.id}>
                         <Task task={filteredTask} onChange={onChangeTask} onDelete={onDeleteTask} />
                     </li>
-                ))};
+                ))}
             </ul>
         </>
     );
@@ -50,13 +36,13 @@ export function TasksComlete({tasks, onChangeTask, onDeleteTask}) {
     }, 0);
     return (
         <>
-            <h2>{countTasksComlete}</h2>
+            <h5>ГОТОВО {countTasksComlete}</h5>
             <ul>
                 {tasks.filter(task => task.done === true).map(filteredTask => (
                     <li key={filteredTask.id}>
                         <Task task={filteredTask} onChange={onChangeTask} onDelete={onDeleteTask} />
                     </li>
-                ))};
+                ))}
             </ul>
         </>
     );
@@ -88,10 +74,13 @@ function Task({task, onChange, onDelete}) {
   } else {
     taskContent = (
       <div className='task-edit'>
-        {task.text}
+        <div className='task-text'>
+          {task.text}
+        </div>
 
         <IconButton 
             onClick={() => setIsEditing(true)}
+            disabled={task.done}
         >
             <ModeEditIcon />
         </IconButton>
