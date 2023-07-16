@@ -4,6 +4,13 @@ import Box from '@mui/material/Box';
 import { useReducer } from 'react';
 import AddTask from './components/AddTask/AddTask';
 import  { TasksInProcess, TasksComlete }  from './components/TaskList/TaskList';
+import Typography from "@mui/material/Typography";
+
+const REDUCER_CASES = {
+  add: 'added',
+  edit: 'changed',
+  delete: 'deleted',
+}
 
 export default function TaskApp() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
@@ -35,13 +42,13 @@ export default function TaskApp() {
       <Box
         sx={{
           width: 500,
-          height: 700,
+          height: 630,
           borderRadius: '20px',
           border: "solid 2px blue"
         }}
         p={3}
       >
-        <h1>ToDo</h1>
+        <Typography color="secondary" variant="h4" gutterBottom>ToDo</Typography>
         <AddTask onAddTask={handleAddTask} />
         <TasksInProcess
           tasks={tasks}
@@ -60,7 +67,7 @@ export default function TaskApp() {
 
 function tasksReducer(tasks, action) {
   switch (action.type) {
-    case 'added': {
+    case REDUCER_CASES.add: {
       return [
         ...tasks,
         {
@@ -70,7 +77,7 @@ function tasksReducer(tasks, action) {
         },
       ];
     }
-    case 'changed': {
+    case REDUCER_CASES.edit: {
       return tasks.map((t) => {
         if (t.id === action.task.id) {
           return action.task;
@@ -79,19 +86,19 @@ function tasksReducer(tasks, action) {
         }
       });
     }
-    case 'deleted': {
+    case REDUCER_CASES.delete: {
       return tasks.filter((t) => t.id !== action.id);
     }
     default: {
-      throw Error('Unknown action: ' + action.type);
+      return {...tasks};
     }
   }
 }
 
 let nextId = 3;
 const initialTasks = [
-  {id: 0, text: 'Visit Kafka Museum', done: true},
-  {id: 1, text: 'Watch a puppet show', done: false},
-  {id: 2, text: 'Lennon Wall pic', done: false},
+  {id: 0, text: 'Выполнить кросс-ревью проектов ToDo', done: true},
+  {id: 1, text: 'Написать в свой канал рефлексию по текущему положению дел', done: false},
+  {id: 2, text: 'Посмотреть фильм', done: false},
 ];
 

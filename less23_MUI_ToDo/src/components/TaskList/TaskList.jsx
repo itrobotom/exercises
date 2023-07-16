@@ -15,7 +15,7 @@ export function TasksInProcess({tasks, onChangeTask, onDeleteTask}) {
     }, 0);
     return (
         <>
-            <h5>ПЛАН {countTaskInProcess}</h5>
+            <h5>ПЛАН ({countTaskInProcess})</h5>
             <ul>
                 {tasks.filter(task => task.done === false).map(filteredTask => (
                     <li key={filteredTask.id}>
@@ -36,7 +36,7 @@ export function TasksComlete({tasks, onChangeTask, onDeleteTask}) {
     }, 0);
     return (
         <>
-            <h5>ГОТОВО {countTasksComlete}</h5>
+            <h5>ГОТОВО ({countTasksComlete})</h5>
             <ul>
                 {tasks.filter(task => task.done === true).map(filteredTask => (
                     <li key={filteredTask.id}>
@@ -47,7 +47,6 @@ export function TasksComlete({tasks, onChangeTask, onDeleteTask}) {
         </>
     );
 }
-
 
 function Task({task, onChange, onDelete}) {
   const [isEditing, setIsEditing] = useState(false);
